@@ -1,0 +1,42 @@
+{% extends 'generic/object.html' %}
+{% load i18n %}
+
+{% block content %}
+    <div class="row">
+        <div class="col col-md-6">
+            <div class="card">
+                <h5 class="card-header">{% trans "proxmox netbox mapping" %}</h5>
+                <table class="table table-hover attr-table">
+                    <tr>
+                        <th scope="row">{% trans "Name" %}</th>
+                        <td>{{ object.name }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">{% trans "Site" %}</th>
+                        <td>{{ object.site|linkify }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">{% trans "Cluster Type" %}</th>
+                        <td>{{ object.cluster_type|linkify }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">{% trans "Nodes Role" %}</th>
+                        <td>{{ object.node_role|linkify }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">{% trans "Node Default Device Type" %}</th>
+                        <td>{{ object.node_device_type|linkify }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">{% trans "VMs Role" %}</th>
+                        <td>{{ object.vm_role|linkify }}</td>
+                    </tr>
+                </table>
+            </div>
+            {% include 'inc/panels/custom_fields.html' %}
+        </div>
+        <div class="col col-md-6">
+            {% include 'inc/panels/tags.html' %}
+        </div>
+    </div>
+{% endblock %}

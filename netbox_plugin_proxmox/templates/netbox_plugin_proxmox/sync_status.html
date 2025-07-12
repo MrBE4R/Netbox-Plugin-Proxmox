@@ -1,0 +1,21 @@
+{% extends 'generic/_base.html' %}
+{% load static %}
+
+{% block title %}
+Result of proxmox imports
+{% endblock %}
+
+{% block content %}
+<script src="{% static 'django_htmx/htmx.min.js' %}"></script>
+<script src="{% static 'django_htmx/django-htmx.js' %}"></script>
+
+<div class="row">
+  <button class="btn btn-primary col-6 p-2 mx-auto" hx-trigger="click" hx-get="{% url 'plugins:netbox_plugin_proxmox:proxmoxsync' %}" hx-target="#result" hx-swap="innerHTML">
+    Import all vms from all clusters
+    <div id="spinner" class="spinner-border htmx-indicator m-0 p-0" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </button>
+  <div id="result"></div>
+</div>
+{% endblock %}

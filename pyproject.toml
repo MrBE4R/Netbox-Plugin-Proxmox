@@ -1,0 +1,35 @@
+[project]
+name = "netbox-plugin-proxmox"
+version = "2025.07.14"
+description = "Plugins to automatically sync virtual machines from multiples proxmox cluster or instances"
+authors = [
+  {name="Jean-François GUILLAUME", email="jean-francois.guillaume@univ-nantes.fr"}
+]
+license-files = [
+  "LICENSE"
+]
+readme = "README.md"
+keywords = ["netbox", "netbox-plugin", "proxmox"]
+classifiers = [
+  "Development Status :: 5 - Production/Stable"
+]
+dependencies = [
+  "proxmoxer",
+]
+requires-python = ">=3.10"
+
+[project.urls]
+Homepage = "https://forgejo.yam-it.net/YAM-IT/Netbox-Plugin-Proxmox"
+Documentation = "https://forgejo.yam-it.net/YAM-IT/Netbox-Plugin-Proxmox"
+Repository = "https://forgejo.yam-it.net/YAM-IT/Netbox-Plugin-Proxmox"
+Issues = "https://forgejo.yam-it.net/YAM-IT/Netbox-Plugin-Proxmox/issues"
+
+[build-system]
+requires = ['setuptools']
+build-backend = 'setuptools.build_meta'
+
+[tool.setuptools.packages.find]
+exclude = ["examples*", "media*", "*.tests*"]
+
+[tool.setuptools.package-data]
+"netbox_plugin_proxmox" = ["templates/**/*.html", "locale/**/*.mo"]

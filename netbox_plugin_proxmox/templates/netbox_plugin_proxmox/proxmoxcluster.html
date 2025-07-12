@@ -1,0 +1,42 @@
+{% extends 'generic/object.html' %}
+{% load i18n %}
+
+{% block content %}
+    <div class="row">
+        <div class="col col-md-6">
+            <div class="card">
+                <h5 class="card-header">{% trans "proxmox netbox mapping" %}</h5>
+                <table class="table table-hover attr-table">
+                    <tr>
+                        <th scope="row">{% trans "URL" %}</th>
+                        <td><a href="https://{{ object.proxmox_url }}">{{ object.proxmox_url }}</a></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">{% trans "Verify certificate" %}</th>
+                        <td>{% checkmark object.verify_tls %}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">{% trans "Proxmox Username" %}</th>
+                        <td>{{ object.username }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">{% trans "Proxmox Token Name" %}</th>
+                        <td>{{ object.token_name }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">{% trans "Enabled" %}</th>
+                        <td>{% checkmark object.enabled %}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">{% trans "Proxmox Netbox Mapping" %}</th>
+                        <td>{{ object.netbox_mapping|linkify }}</td>
+                    </tr>
+                </table>
+            </div>
+            {% include 'inc/panels/custom_fields.html' %}
+        </div>
+        <div class="col col-md-6">
+            {% include 'inc/panels/tags.html' %}
+        </div>
+    </div>
+{% endblock %}

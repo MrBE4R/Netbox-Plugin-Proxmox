@@ -1,0 +1,5 @@
+version: 0.1
+package_name: netbox-plugin-proxmox
+compatibility:
+  - release: 2025.07.14
+    netbox_min: 4.3.0
