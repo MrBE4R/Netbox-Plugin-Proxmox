@@ -154,6 +154,7 @@ def get_or_create_and_update_node_interface(
         nb_ip = get_or_create_ip(proxmox_interface.get("cidr"))
         nb_ip.assigned_object_id = nb_iface.id
         nb_ip.assigned_object = nb_iface
+        nb_ip.description = netbox_node.name
         nb_ip.save()
 
     nb_iface.mtu = int(proxmox_interface.get("mtu") or 1500)
