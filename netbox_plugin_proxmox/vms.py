@@ -169,6 +169,7 @@ def get_or_create_and_update_qemu(
                 ip = get_or_create_ip(address)
                 ip.assigned_object_id = iface.id
                 ip.assigned_object = iface
+                ip.description = qemu_proxmox_json.get("name")
                 ip.save()
         netbox_qemu_json = netbox_qemu_to_json(
             netbox_qemu, with_addresses=with_addresses
