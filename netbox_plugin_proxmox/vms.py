@@ -220,4 +220,5 @@ def netbox_qemu_to_json(netbox_qemu=None, with_addresses=False):
 
 
 def get_or_create_and_update_lxc(lxc_proxmox_json, netbox_config):
+    yield "Skipping lxc for now"
     pass
